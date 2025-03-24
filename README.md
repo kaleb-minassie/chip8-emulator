@@ -50,12 +50,14 @@ In addition, the following functions are provided by the interface for your use 
 - int chip8_draw_sprite(uint16_t addr, uint8_t x, uint8_t y, uint8_t height) — Draw a sprite from the specified location in memory to the x and y coordinates provided, with    the specified height. Returns 1 if there was a collision with an already drawn pixel, 0 otherwise.
 
 Controls are mapped in the interface to the keypad controls of the CHIP-8 in the following way:
+
 1 2 3 4
 q w e r
 a s d f
 z c v b
 
 In the normal key layout, the controls are specified as they were on the COSMAC VIP system:
+
 1 2 3 C
 4 5 6 D
 7 8 9 E
