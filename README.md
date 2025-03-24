@@ -51,24 +51,24 @@ In addition, the following functions are provided by the interface for your use 
 
 Controls are mapped in the interface to the keypad controls of the CHIP-8 in the following way:
 
-1 2 3 4
-q w e r
-a s d f
-z c v b
+      1 2 3 4
+      q w e r
+      a s d f
+      z c v b
 
 In the normal key layout, the controls are specified as they were on the COSMAC VIP system:
 
-1 2 3 C
-4 5 6 D
-7 8 9 E
-A 0 B F
+      1 2 3 C
+      4 5 6 D
+      7 8 9 E
+      A 0 B F
 
 An alternate key layout is provided for ROMs designed for the DREAM 6800 and ETI-660 computers if you come across any. In those systems, the control layout is this one that might seem more customary:
 
-0 1 2 3
-4 5 6 7
-8 9 A B
-C D E F
+      0 1 2 3
+      4 5 6 7
+      8 9 A B
+      C D E F
 
 The example roms provided in the link in this document use the standard COSMAC VIP key layout. To use the other layout, provide the -k flag to the program before the name of the rom to load.
 
