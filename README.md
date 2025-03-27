@@ -13,7 +13,7 @@
 - SDL basecode added
 - `mychip8.c` file created for core emulator logic
 
-## Project Goals
+## Progress
 
 - Implement full CHIP-8 fetch-decode-execute cycle
 - Accurately emulate all 35 CHIP-8 opcodes
