@@ -19,15 +19,11 @@
 - Accurately emulate all 35 CHIP-8 opcodes
 - Load and run CHIP-8 ROMs with proper input/output handling
 
-## Project Requirements
+## Project Description
 
-You are to design and implement an emulator for the CHIP-8 virtual machine. Your project must be implemented either in the C or C++ programming language.
+A simple CHIP-8 emulator written in C that can run classic CHIP-8 games using SDL for graphics, input, and sound.
 
-Your CHIP-8 emulator must implement all instructions of the original CHIP-8, as well as features such as input and video/sound output. Accuracy is important to ensure that programs written for the CHIP-8 work correctly in your emulator.
-
-The instructor will provide a simple user interface for the emulator that will take in input from the user and provide it to your code by way of a C function. In addition, there will be functions that your code must implement that the user interface will call such as one to do one frame of emulation. The instructor's user interface will also be responsible for loading the program into the emulator and will provide an interface to read/write memory for the emulator.
-
-You must implement the following functions in order to use this interface:
+Functions to implement in order to use this interface:
 
 - void chip8_init(void) — Initialize anything your emulator requires initialized on startup. This function may be empty if you do not require any initialization on startup,     but it must be provided.
 - void chip8_shutdown(void) — Clean up anything your emulator requirese to be cleaned up on shut down. This function may be empty if it is not required in your design, but 
