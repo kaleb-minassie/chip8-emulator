@@ -7,16 +7,17 @@
 
 # Due Date: Saturday, May 3rd by 11:59:00 PM EDT
 
-## Changelog
+## Current Status
 
-- March 13: Added more information about compiling with the SDL-based UI.
-- March 12: Added SDL-based Project UI and information on it and two more resource links.
-- February 26: Initial Revision 
+- Opcode implementation: None yet
+- SDL basecode added
+- `mychip8.c` file created for core emulator logic
 
-# Introduction
-In this project, you will be implementing an emulator for a virtual machine called the CHIP-8. You will be responsible for implementing code to load CHIP-8 programs, interpret the instructions of the virtual machine, update the state of the virtual machine, generate graphics, and handle input from the user. Upon doing so, you will be able to play actual games designed for this virtual machine on your own computer in order to test out its functionality.
+## Project Goals
 
-This project is to be completed individually. No group work is allowed on the project. You may discuss concepts behind the project with your classmates, however you are not allowed to directly collaborate on the assignment. You will turn in your project on GitHub, so please sign up for a GitHub account at your earliest convenience if you do not have one already. Please ensure that your UMBC email account is listed on the account (it does not have to be the primary email and your GitHub account username need not match your UMBC one).
+- Implement full CHIP-8 fetch-decode-execute cycle
+- Accurately emulate all 35 CHIP-8 opcodes
+- Load and run CHIP-8 ROMs with proper input/output handling
 
 ## Project Requirements
 
@@ -25,8 +26,6 @@ You are to design and implement an emulator for the CHIP-8 virtual machine. Your
 Your CHIP-8 emulator must implement all instructions of the original CHIP-8, as well as features such as input and video/sound output. Accuracy is important to ensure that programs written for the CHIP-8 work correctly in your emulator.
 
 The instructor will provide a simple user interface for the emulator that will take in input from the user and provide it to your code by way of a C function. In addition, there will be functions that your code must implement that the user interface will call such as one to do one frame of emulation. The instructor's user interface will also be responsible for loading the program into the emulator and will provide an interface to read/write memory for the emulator.
-
-The sample interface is available here. This interface provides the entire user interface and interaction code, as well as the implementation of sound support for your emulator. Everyone is expected to use this code, and during grading an unmodified version of this code will be used to bootstrap everyone's emulator by the TA.
 
 You must implement the following functions in order to use this interface:
 
