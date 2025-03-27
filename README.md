@@ -89,3 +89,9 @@ By the First Checkpoint data above, you must have the following implemented in y
           - Implementation of at least 10 out the 35 opcodes of CHIP-8
           
 The code implementing all of this must be in your GitHub repository by the date/time listed above. In addition, you must have at least three non-trivial commits made on separate days to your repository by this time.
+
+## Resources Used
+
+- [CHIP-8 Documentation GitHub](https://github.com/trapexit/chip-8_documentation)
+- [Wikipedia: CHIP-8](https://en.wikipedia.org/wiki/CHIP-8)
+- [Guide by Tobias V. Langhoff](https://tobiasvl.github.io/blog/write-a-chip-8-emulator/#google_vignette)
