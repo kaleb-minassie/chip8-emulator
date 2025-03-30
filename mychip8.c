@@ -29,7 +29,24 @@ void chip8_execute_instruction(void) {
             // 1NNN - jump to address
             pc = nnn;
             break;
+        
+        case 0x3000:
+        // 3XNN - skip next if Vx == NN
+        if (V[x] == nn) pc += 2;
+        break;
 
+        case 0x4000:
+        // 4XNN - skip next if Vx != NN
+        if (V[x] != nn) pc += 2;
+        break;
+
+        case 0x5000:
+        if ((opcode & 0x000F) == 0x0) {
+            // 5XY0 - skip next if Vx == Vy
+            if (V[x] == V[y]) pc += 2;
+        }
+        break;
+        
         case 0x6000:
             // 6XNN - set Vx = NN
             V[x] = nn;
@@ -39,7 +56,14 @@ void chip8_execute_instruction(void) {
             // 7XNN - Vx += NN
             V[x] += nn;
             break;
-
+        
+        case 0x9000:
+        if ((opcode & 0x000F) == 0x0) {
+            // 9XY0 - skip next if Vx != Vy
+            if (V[x] != V[y]) pc += 2;
+        }
+        break;
+        
         case 0xA000:
             // ANNN - set I = NNN
             I = nnn;
