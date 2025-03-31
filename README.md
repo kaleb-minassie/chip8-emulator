@@ -9,7 +9,7 @@
 
 ## Current Status
 
-- Opcode implementation: None yet
+- Opcode implementation: 10 opcodes implememented
 - SDL basecode added
 - `mychip8.c` file created for core emulator logic
 
