@@ -39,7 +39,13 @@
   - Finish remaining arithmetic opcodes
   - Add subroutine control (CALL, RETURN)
   - Implement timers
-    
+
+## Warnings / Issues
+- No test ROMs loaded yet for arithmetic verification
+- Carry flag (`VF`) needs extra testing in `8XY4`
+- Emulator runs but opcode coverage is still partial
+- No sound or input handling yet
+
 ## Project Description
 
 A simple CHIP-8 emulator written in C that can run classic CHIP-8 games using SDL for graphics, input, and sound.
