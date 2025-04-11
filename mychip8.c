@@ -56,6 +56,35 @@ void chip8_execute_instruction(void) {
             // 7XNN - Vx += NN
             V[x] += nn;
             break;
+        case 0x8000:
+    switch (opcode & 0x000F) {
+        case 0x0:
+            // 8XY0 - set Vx = Vy
+            V[x] = V[y];
+            break;
+        case 0x1:
+            // 8XY1 - Vx = Vx OR Vy
+            V[x] |= V[y];
+            break;
+        case 0x2:
+            // 8XY2 - Vx = Vx AND Vy
+            V[x] &= V[y];
+            break;
+        case 0x3:
+            // 8XY3 - Vx = Vx XOR Vy
+            V[x] ^= V[y];
+            break;
+        case 0x4:
+            // 8XY4 - Vx += Vy (with carry)
+            if (V[y] > (0xFF - V[x])) V[0xF] = 1;
+            else V[0xF] = 0;
+            V[x] += V[y];
+            break;
+        default:
+            // not handled yet
+            break;
+    }
+    break;
         
         case 0x9000:
         if ((opcode & 0x000F) == 0x0) {
