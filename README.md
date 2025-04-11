@@ -9,16 +9,37 @@
 
 ## Current Status
 
-- Opcode implementation: 10 opcodes implememented
+- Opcode implementation: 15 opcodes implememented
 - SDL basecode added
 - `mychip8.c` file created for core emulator logic
 
 ## Progress
-
-- Implement full CHIP-8 fetch-decode-execute cycle
-- Accurately emulate all 35 CHIP-8 opcodes
-- Load and run CHIP-8 ROMs with proper input/output handling
-
+ - **Display / Flow:**
+    - `00E0` - Clear the display
+    - `1NNN` - Jump to address
+  - **Registers:**
+    - `6XNN` - Set Vx = NN
+    - `7XNN` - Add NN to Vx
+    - `ANNN` - Set I = NNN
+  - **Drawing:**
+    - `DXYN` - Draw sprite at (Vx, Vy)
+  - **Conditional:**
+    - `3XNN` - Skip next if Vx == NN
+    - `4XNN` - Skip next if Vx != NN
+    - `5XY0` - Skip next if Vx == Vy
+    - `9XY0` - Skip next if Vx != Vy
+  - **Arithmetic:**
+    - `8XY0` - Set Vx = Vy
+    - `8XY1` - Set Vx = Vx OR Vy
+    - `8XY2` - Set Vx = Vx AND Vy
+    - `8XY3` - Set Vx = Vx XOR Vy
+    - `8XY4` - Set Vx += Vy (with carry)
+   
+   **Next steps:**
+  - Finish remaining arithmetic opcodes
+  - Add subroutine control (CALL, RETURN)
+  - Implement timers
+    
 ## Project Description
 
 A simple CHIP-8 emulator written in C that can run classic CHIP-8 games using SDL for graphics, input, and sound.
@@ -67,7 +88,6 @@ An alternate key layout is provided for ROMs designed for the DREAM 6800 and ETI
 
 The example roms provided in the link in this document use the standard COSMAC VIP key layout. To use the other layout, provide the -k flag to the program before the name of the rom to load.
 
-To compile with the provided SDL UI, you will need to install the SDL library and its development tools on your system. On Debian/Ubuntu/Pop!_OS Linux distributions, you will need to install at least the build-essential and libsdl1.2-dev packages with apt. On other Linux distributions, you will need to install similar packages (for instance, on Fedora you should look for the sdl12-compat-devel package, plus your normal compiler setup). On Windows, if you install MinGW-w64 and MSYS2, you can use the built-in pacman package tool to install either mingw-64-SDL or mingw-w64-sdl12-compat to build the code. On macOS, you can use MacPorts to install the sdl12-compat package, or you can try to build SDL 2.x and the compatibility library from source (or, set up a VM running Ubuntu, and follow the directions above).
 
 You should then be able to use a command line such as the following to build the code (assuming you leave the filename as is and your code is in a file named mychip8.c):
 
