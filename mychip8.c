@@ -108,3 +108,15 @@ void chip8_execute_instruction(void) {
             break;
     }
 }       
+
+void chip8_init(void) {
+    // todo: initialize chip8 state
+}
+
+void chip8_shutdown(void) {
+    // todo: clean up emulator
+}
+
+void chip8_reset(void) {
+    // todo: reset chip-8 state
+}
