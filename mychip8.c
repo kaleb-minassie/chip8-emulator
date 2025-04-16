@@ -118,5 +118,15 @@ void chip8_shutdown(void) {
 }
 
 void chip8_reset(void) {
-    // todo: reset chip-8 state
+      // clear all V registers
+       for (int i = 0; i < 16; i++) {
+        V[i] = 0;
+    }
+
+    // reset index and program counter
+    I = 0;
+    pc = 0x200;
+
+    // clear memory and reload ROM
+    chip8_mem_reset();
 }
