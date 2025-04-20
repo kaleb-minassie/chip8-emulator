@@ -5,6 +5,9 @@
 static uint8_t V[16];        // registers V0 to VF
 static uint16_t I;           // index register
 static uint16_t pc = 0x200;  // program counter starts at 0x200
+static uint16_t stack[16];  // stack for subroutine calls
+static uint8_t sp = 0;      // stack pointer
+
 
 void chip8_execute_instruction(void) {
     // grab the opcode (2 bytes)
