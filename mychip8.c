@@ -102,6 +102,26 @@ void chip8_execute_instruction(void) {
             // DXYN - draw sprite
             V[0xF] = chip8_draw_sprite(I, V[x], V[y], n);
             break;
+        
+        case 0xF000:
+        switch (opcode & 0x00FF) {
+            case 0x07:
+                // FX07 - Vx = delay timer
+                V[x] = chip8_register_read(CHIP8_REG_DT);
+                break;
+            case 0x15:
+                // FX15 - set delay timer = Vx
+                chip8_register_write(CHIP8_REG_DT, V[x]);
+                break;
+            case 0x18:
+                // FX18 - set sound timer = Vx
+                chip8_register_write(CHIP8_REG_ST, V[x]);
+                break;
+            default:
+                // not handled yet
+                break;
+        }
+        break;
 
         default:
             // not handled yet
