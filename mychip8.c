@@ -25,6 +25,10 @@ void chip8_execute_instruction(void) {
             if (opcode == 0x00E0) {
                 // 00E0 - clear screen
                 chip8_clear_frame();
+            } else if (opcode == 0x00EE) {
+                // 00EE - return from subroutine
+                sp--;
+                pc = stack[sp];
             }
             break;
 
@@ -33,6 +37,13 @@ void chip8_execute_instruction(void) {
             pc = nnn;
             break;
         
+        case 0x2000:
+            // 2NNN - call subroutine at NNN
+            stack[sp] = pc;
+            sp++;
+            pc = nnn;
+            break;
+
         case 0x3000:
         // 3XNN - skip next if Vx == NN
         if (V[x] == nn) pc += 2;
@@ -146,10 +157,10 @@ void chip8_reset(void) {
         V[i] = 0;
     }
 
-    // reset index and program counter
+    // reset index, program counter, and stack pointer
     I = 0;
     pc = 0x200;
-
+    sp = 0;
     // clear memory and reload ROM
     chip8_mem_reset();
 }
