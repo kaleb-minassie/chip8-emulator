@@ -7,15 +7,22 @@
 
 # Due Date: Saturday, May 3rd by 11:59:00 PM EDT
 
+## Extra Credit
+- I plan to submit my project early for the 5% early submission extra  
+  credit on April 26th.
+- I would like to participate in the performance contest for up to 5% extra 
+  credit.
+
 ## Current Status
 
-- Opcode implementation: 15 opcodes implememented
+- Opcode implementation: 21 opcodes implememented
 - SDL basecode added
 - `mychip8.c` file created for core emulator logic
 
 ## Progress
  - **Display / Flow:**
     - `00E0` - Clear the display
+    - `00EE` - Returm from subroutine
     - `1NNN` - Jump to address
   - **Registers:**
     - `6XNN` - Set Vx = NN
@@ -34,17 +41,27 @@
     - `8XY2` - Set Vx = Vx AND Vy
     - `8XY3` - Set Vx = Vx XOR Vy
     - `8XY4` - Set Vx += Vy (with carry)
+  - **Timers:**
+    - `FX07` - Set Vx = delay timer value
+    - `FX15` - Set delay timer = Vx
+    - `FX18` - Set sound timer = Vx
+  - **Random / Input:**
+    - `CXNN` - Set Vx = rand() & NN
+    - `EX9E` - Skip next instruction if key in Vx is pressed
+    - `EXA1` - Skip next instruction if key in Vx is not pressed
+
    
    **Next steps:**
-  - Finish remaining arithmetic opcodes
-  - Add subroutine control (CALL, RETURN)
-  - Implement timers
-
+  - Finish remaining arithmetic/logical opcodes
+  - Implement BCD and memory store/load ops
+  - Full input and sound test with ROMs
+  - Prepare for test suite compatibility
+  - 
 ## Warnings / Issues
-- No test ROMs loaded yet for arithmetic verification
+- No test ROMs loaded yet for full opcode verification
 - Carry flag (`VF`) needs extra testing in `8XY4`
-- Emulator runs but opcode coverage is still partial
-- No sound or input handling yet
+- Input ops (`EX9E`, `EXA1`) require live ROM interaction testing
+- Random instruction output not yet validated against reference
 
 ## Project Description
 
