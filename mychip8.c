@@ -111,11 +111,32 @@ void chip8_execute_instruction(void) {
             // ANNN - set I = NNN
             I = nnn;
             break;
-
+        
+         case 0xC000:
+            // CXNN - Vx = rand() & NN
+            V[x] = (rand() % 256) & nn;
+            break;
+        
         case 0xD000:
             // DXYN - draw sprite
             V[0xF] = chip8_draw_sprite(I, V[x], V[y], n);
             break;
+        
+        case 0xE000:
+            switch (opcode & 0x00FF) {
+                case 0x9E:
+                    // EX9E - skip next if key in Vx is pressed
+                    if (chip8_register_read(V[x])) pc += 2;
+                    break;
+                case 0xA1:
+                    // EXA1 - skip next if key in Vx is NOT pressed
+                    if (!chip8_register_read(V[x])) pc += 2;
+                    break;
+                default:
+                    // not handled yet
+                    break;
+            }
+            break; 
         
         case 0xF000:
         switch (opcode & 0x00FF) {
