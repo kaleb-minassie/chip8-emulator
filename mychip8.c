@@ -94,6 +94,15 @@ void chip8_execute_instruction(void) {
             else V[0xF] = 0;
             V[x] += V[y];
             break;
+        case 0x5:
+            // 8XY5 - Vx = Vx - Vy, set VF = 1 if no borrow, 0 if borrow
+            if (V[x] > V[y]) {
+                V[0xF] = 1; // no borrow flag
+            } else {
+                V[0xF] = 0; // borrow flag happened
+            }
+            V[x] = V[x] - V[y]; // subtract Vy from Vx
+            break;
         default:
             // not handled yet
             break;
