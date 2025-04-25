@@ -117,6 +117,11 @@ void chip8_execute_instruction(void) {
             }
             V[x] = V[y] - V[x]; // subtract Vx from Vy
             break;
+        case 0xE:
+            // 8XYE - Vx = Vx << 1, set VF = most significant bit before shift
+            V[0xF] = (V[x] & 0x80) >> 7;  // store most significant bit of Vx into VF
+            V[x] <<= 1;                   // shift Vx left by 1 (multiply by 2)
+            break; 
         default:
             // not handled yet
             break;
