@@ -95,7 +95,7 @@ void chip8_execute_instruction(void) {
             V[x] += V[y];
             break;
         case 0x5:
-            // 8XY5 - Vx = Vx - Vy, set VF = 1 if no borrow, 0 if borrow
+            // 8XY5 - Vx = Vx - Vy, set VF = 1 if no borrow flag, 0 if borrow flag
             if (V[x] > V[y]) {
                 V[0xF] = 1; // no borrow flag
             } else {
@@ -107,6 +107,15 @@ void chip8_execute_instruction(void) {
             // 8XY6 - Vx = Vx >> 1, set VF = least significant bit before shift
             V[0xF] = V[x] & 0x1; // save least significant bit to VF
             V[x] = V[x] >> 1;    // shift Vx right by 1 (divide by 2)
+            break;
+        case 0x7:
+            // 8XY7 - Vx = Vy - Vx, set VF = 1 if no borrow flag, 0 if borrow flag
+            if (V[y] > V[x]) {
+                V[0xF] = 1; // no borrow flag
+            } else {
+                V[0xF] = 0; // borrow flag happened
+            }
+            V[x] = V[y] - V[x]; // subtract Vx from Vy
             break;
         default:
             // not handled yet
