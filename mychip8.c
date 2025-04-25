@@ -103,6 +103,11 @@ void chip8_execute_instruction(void) {
             }
             V[x] = V[x] - V[y]; // subtract Vy from Vx
             break;
+        case 0x6:
+            // 8XY6 - Vx = Vx >> 1, set VF = least significant bit before shift
+            V[0xF] = V[x] & 0x1; // save least significant bit to VF
+            V[x] = V[x] >> 1;    // shift Vx right by 1 (divide by 2)
+            break;
         default:
             // not handled yet
             break;
