@@ -210,12 +210,17 @@ void chip8_execute_instruction(void) {
         I += V[x];  // add the value of Vx to the index register I
         break;
 
+        case 0x29:
+        // FX29 - Set I = location of sprite for digit Vx
+        I = V[x] * 5; // each sprite is 5 bytes long
+        break;
+
         default:
             // not handled yet
             break;
     }
 }       
-
+     
 void chip8_init(void) {
     // todo: initialize chip8 state
 }
