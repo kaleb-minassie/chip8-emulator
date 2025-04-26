@@ -59,7 +59,6 @@
   - 
 ## Warnings / Issues
 - No test ROMs loaded yet for full opcode verification
-- Carry flag (`VF`) needs extra testing in `8XY4`
 - Input ops (`EX9E`, `EXA1`) require live ROM interaction testing
 - Random instruction output not yet validated against reference
 
