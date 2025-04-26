@@ -215,6 +215,14 @@ void chip8_execute_instruction(void) {
         I = V[x] * 5; // each sprite is 5 bytes long
         break;
 
+        case 0x33:
+        // FX33 - Store BCD (binary-coded decimal) of Vx into memory at I, I+1, I+2
+        chip8_mem_write(I, V[x] / 100);      // store hundreds digit at memory address I
+        chip8_mem_write(I + 1, (V[x] / 10) % 10); // store tens digit at memory address I+1
+        chip8_mem_write(I + 2, V[x] % 10);   // store ones digit at memory address I+2
+        break; 
+
+        
         default:
             // not handled yet
             break;
