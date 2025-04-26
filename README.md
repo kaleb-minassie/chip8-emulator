@@ -59,8 +59,7 @@
   - 
 ## Warnings / Issues
 - No test ROMs loaded yet for full opcode verification
-- Input ops (`EX9E`, `EXA1`) require live ROM interaction testing
-- Random instruction output not yet validated against reference
+- Random instruction output (`CXNN`) not yet validated against reference
 
 ## Project Description
 
