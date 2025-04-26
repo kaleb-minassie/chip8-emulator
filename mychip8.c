@@ -222,7 +222,20 @@ void chip8_execute_instruction(void) {
         chip8_mem_write(I + 2, V[x] % 10);   // store ones digit at memory address I+2
         break; 
 
-        
+        case 0x55:
+        // FX55 - store V0 to Vx into memory starting at I
+        for (int i = 0; i <= x; i++) {  // loop from V0 up to Vx
+            chip8_mem_write(I + i, V[i]); // save each V register into memory starting at I
+        }
+        break;
+
+        case 0x65:
+        // FX65 - load V0 to Vx from memory starting at I
+        for (int i = 0; i <= x; i++) {           // loop from V0 up to Vx
+            V[i] = chip8_mem_read(I + i);         // read memory at (I + i) and store it into V[i]
+        }
+        break;
+
         default:
             // not handled yet
             break;
