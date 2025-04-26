@@ -134,3 +134,4 @@ The code implementing all of this must be in your GitHub repository by the date/
 - [CHIP-8 Documentation GitHub](https://github.com/trapexit/chip-8_documentation)
 - [Wikipedia: CHIP-8](https://en.wikipedia.org/wiki/CHIP-8)
 - [Guide by Tobias V. Langhoff](https://tobiasvl.github.io/blog/write-a-chip-8-emulator/#google_vignette)
+- [CHIP-8 Test Suite by Timendus](https://github.com/Timendus/chip8-test-suite)
