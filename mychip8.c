@@ -187,6 +187,24 @@ void chip8_execute_instruction(void) {
         }
         break;
 
+        case 0x0A:
+    // FX0A - wait for a key press, store key in Vx
+    {
+        int key_pressed = -1;       // start with no key pressed (-1 means none)
+        for (int i = 0; i < 16; i++) {  // check all 16 possible keys
+            if (chip8_register_read(i)) { // if key i is pressed
+                key_pressed = i;     // remember which key was pressed
+                break;               // stop checking once we find a key
+            }
+        }
+        if (key_pressed == -1) {     // if no key was pressed
+            pc -= 2;                 // go back and retry this instruction next cycle
+        } else {
+            V[x] = key_pressed;      // store the pressed key value into Vx
+        }
+    }
+    break;
+
         default:
             // not handled yet
             break;
