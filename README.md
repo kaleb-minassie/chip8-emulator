@@ -20,6 +20,10 @@
 - `mychip8.c` file created for core emulator logic
 - Input tested (Keypad Test ROM)
 - Sound tested (Beep  ROM)
+- Public CHIP-8 games tested:
+  - Space Invaders (basic controls work)
+  - Pong (basic display and input verified)
+
 
 ## Progress
  - **Display / Flow:**
