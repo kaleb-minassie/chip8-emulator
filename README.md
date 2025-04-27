@@ -57,7 +57,7 @@
     - `FX33` - Store BCD of Vx in memory at I, I+1, and I+2
     - `FX55` - Store V0 through Vx into memory starting at I
     - `FX65` - Read into V0 through Vx from memory starting at I
-  - 
+
 ## Warnings / Issues
 - None
 
@@ -124,3 +124,5 @@ This should result in a program called chip8 being built.
 - [Wikipedia: CHIP-8](https://en.wikipedia.org/wiki/CHIP-8)
 - [Guide by Tobias V. Langhoff](https://tobiasvl.github.io/blog/write-a-chip-8-emulator/#google_vignette)
 - [CHIP-8 Test Suite by Timendus](https://github.com/Timendus/chip8-test-suite)
+- [CHIP-8 Games Pack (Zophar.net)](https://www.zophar.net/pdroms/chip8/chip-8-games-pack.html)
+
