@@ -15,14 +15,16 @@
 
 ## Current Status
 
-- Opcode implementation: 21 opcodes implememented
+- Opcode implementation: 35 opcodes implemented
 - SDL basecode added
 - `mychip8.c` file created for core emulator logic
+- Input tested (Keypad Test ROM)
+- Sound tested (Beep  ROM)
 
 ## Progress
  - **Display / Flow:**
     - `00E0` - Clear the display
-    - `00EE` - Returm from subroutine
+    - `00EE` - Return from subroutine
     - `1NNN` - Jump to address
   - **Registers:**
     - `6XNN` - Set Vx = NN
@@ -49,17 +51,15 @@
     - `CXNN` - Set Vx = rand() & NN
     - `EX9E` - Skip next instruction if key in Vx is pressed
     - `EXA1` - Skip next instruction if key in Vx is not pressed
-
-   
-   **Next steps:**
-  - Finish remaining arithmetic/logical opcodes
-  - Implement BCD and memory store/load ops
-  - Full input and sound test with ROMs
-  - Prepare for test suite compatibility
+  - **Memory:**
+    - `FX1E` - I += Vx
+    - `FX29` - Set I = location of font sprite for digit Vx
+    - `FX33` - Store BCD of Vx in memory at I, I+1, and I+2
+    - `FX55` - Store V0 through Vx into memory starting at I
+    - `FX65` - Read into V0 through Vx from memory starting at I
   - 
 ## Warnings / Issues
-- No test ROMs loaded yet for full opcode verification
-- Random instruction output (`CXNN`) not yet validated against reference
+- None
 
 ## Project Description
 
@@ -117,15 +117,6 @@ gcc -o chip8 sdl-basecode.c mychip8.c -lSDL -lm
 
 ```
 This should result in a program called chip8 being built.
-
-## First Checkpoint
-
-By the First Checkpoint data above, you must have the following implemented in your code:
-
-          - Basic fetch/execute cycle
-          - Implementation of at least 10 out the 35 opcodes of CHIP-8
-          
-The code implementing all of this must be in your GitHub repository by the date/time listed above. In addition, you must have at least three non-trivial commits made on separate days to your repository by this time.
 
 ## Resources Used
 
