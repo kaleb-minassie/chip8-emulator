@@ -3,16 +3,6 @@
 
 # Semester Project
 
-# First Checkpoint: Saturday, March 29th by 11:59:00 PM EDT
-
-# Due Date: Saturday, May 3rd by 11:59:00 PM EDT
-
-## Extra Credit
-- I plan to submit my project early for the 5% early submission extra  
-  credit on April 26th.
-- I would like to participate in the performance contest for up to 5% extra 
-  credit.
-
 ## Current Status
 
 - Opcode implementation: 35 opcodes implemented
